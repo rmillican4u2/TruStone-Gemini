@@ -1,0 +1,573 @@
+<html_code>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TruStone Outdoors: Expert Sod & Hardscaping in [City, State]</title>
+    <meta name="description" content="Revamp your yard with TruStone Outdoors. We specialize in natural sod installation and custom hardscaping (patios, walkways, walls). Get a free quote today!">
+    
+    <style>
+        :root {
+            --color-primary: #1A5319; /* Deep Green - TruStone */
+            --color-secondary: #FFB300; /* Warm Accent - Conversion CTA */
+            --color-light: #F4F4FEE; /* Light Background */
+            --color-dark: #333333;
+            --color-text: #4A4A4A;
+            --font-family-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --spacing-unit: 1rem;
+        }
+
+        /* Base Reset and Typography */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family-body);
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: #fff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Utility Classes */
+        .py-4 { padding: calc(var(--spacing-unit) * 4) 0; }
+        .py-8 { padding: calc(var(--spacing-unit) * 8) 0; }
+        .text-center { text-align: center; }
+        .bg-light { background-color: var(--color-light); }
+        .bg-primary { background-color: var(--color-primary); color: #fff; }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: var(--color-secondary);
+            color: var(--color-dark);
+            border: 2px solid var(--color-secondary);
+        }
+        .btn-primary:hover {
+            background-color: #ffd666;
+        }
+        .section-heading {
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: var(--color-primary);
+        }
+
+        /* Grid Layout (Mobile-First) */
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        /* Default mobile: single column */
+        .grid-3 {
+            grid-template-columns: 1fr;
+        }
+
+        /* Header and Navigation */
+        .site-header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo a {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 900;
+        }
+        .main-nav {
+            display: none; /* Hidden on mobile by default */
+        }
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+        }
+        .main-nav ul li a {
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: 500;
+        }
+        .nav-toggle {
+            font-size: 2rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            color: var(--color-primary);
+        }
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+        .mobile-menu.active {
+            display: block;
+        }
+        .mobile-menu ul {
+            list-style: none;
+            padding: 1rem;
+        }
+        .mobile-menu ul li a {
+            display: block;
+            padding: 0.75rem 0;
+            text-decoration: none;
+            color: var(--color-dark);
+            border-bottom: 1px solid #eee;
+        }
+        .mobile-menu ul li:last-child a {
+            border-bottom: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--color-primary);
+            color: #fff;
+            text-align: center;
+            padding: 6rem 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%231A5319' width='100' height='100'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='5' fill='%23ffffff' font-family='sans-serif'%3EHero Image Placeholder%3C/text%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            min-height: 400px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Value Propositions */
+        .value-props .grid-3 div {
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: var(--color-light);
+            text-align: center;
+        }
+        .value-props h3 {
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Process Section */
+        .process-step {
+            text-align: center;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .process-step span {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--color-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Testimonials/Gallery CTA */
+        .gallery-cta {
+            background-color: var(--color-primary);
+            color: #fff;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .gallery-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form input[type="tel"],
+        .contact-form select {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            width: 100%;
+            cursor: pointer;
+        }
+        .form-message {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 4px;
+            display: none;
+        }
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            display: block;
+        }
+        .form-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+        
+        /* Footer */
+        .site-footer {
+            padding: 2rem 0;
+            background-color: var(--color-dark);
+            color: #ccc;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            font-size: 0.9rem;
+        }
+        .footer-content h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        .footer-content ul {
+            list-style: none;
+        }
+        .footer-content ul li a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            padding: 0.2rem 0;
+        }
+
+        /* Tablet Styles (768px and up) */
+        @media (min-width: 768px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .grid-process {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            /* Header */
+            .main-nav {
+                display: block;
+            }
+            .nav-toggle {
+                display: none;
+            }
+            .mobile-menu {
+                display: none !important;
+            }
+            .hero {
+                padding: 8rem 0;
+            }
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            /* Footer */
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr 2fr; /* Logo, Quick Links, Contact, Disclaimer */
+            }
+        }
+
+        /* Desktop Styles (1024px and up) */
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 10rem 0;
+            }
+            .hero h1 {
+                font-size: 4rem;
+            }
+            .section-heading {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link" style="position: absolute; left: -9999px; font-size: 1.2rem;">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container header-content">
+            <div class="logo">
+                <a href="/">TruStone Outdoors</a>
+            </div>
+            <nav class="main-nav" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/sod-installation/">Sod Installation</a></li>
+                    <li><a href="/hardscaping/">Hardscaping</a></li>
+                    <li><a href="/gallery/">Gallery</a></li>
+                    <li><a href="/about-us/">About Us</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu-list" id="nav-toggle-btn">
+                &#9776; </button>
+        </div>
+        <div id="mobile-menu-list" class="mobile-menu">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/sod-installation/">Sod Installation</a></li>
+                <li><a href="/hardscaping/">Hardscaping</a></li>
+                <li><a href="/gallery/">Gallery</a></li>
+                <li><a href="/about-us/">About Us</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="tel:[Owner Phone Number]" class="btn btn-primary">Call Now</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="hero" role="banner">
+            <div class="container">
+                <h1 class="h1-hero">Dream Yard, Done Right: Expert Sod & Hardscaping in [City Name]</h1>
+                <p>Stop planning and start living in the outdoor space you deserve. TruStone delivers high-quality natural grass and stunning stone features, guaranteed.</p>
+                <a href="#contact-form-section" class="btn btn-primary btn-cta">Get Your Free Estimate Now</a>
+            </div>
+        </section>
+
+        <section class="trust-bar bg-light py-4">
+            <div class="container text-center">
+                <p><strong>Trusted Local Partner.</strong> Licensed &amp; Insured. Read our <a href="[Link to GBP Reviews]" style="color: var(--color-primary);">5-Star Reviews</a> on Google.</p>
+            </div>
+        </section>
+
+        <section class="value-props py-8">
+            <div class="container">
+                <h2 class="section-heading text-center">Why TruStone Outdoors is the Clear Choice</h2>
+                <div class="grid grid-3">
+                    <div>
+                        <h3>Zero-Stress, Turnkey Service</h3>
+                        <p>We manage the entire project, from design and materials sourcing to installation and clean-up.</p>
+                    </div>
+                    <div>
+                        <h3>Guaranteed Quality</h3>
+                        <p>We stand by our work with industry-leading warranties on both sod health and hardscape structural integrity.</p>
+                    </div>
+                    <div>
+                        <h3>Local Expertise (E-E-A-T)</h3>
+                        <p>Certified and insured professionals specializing in [City/Region]'s unique weather and zoning requirements.</p>
+                    </div>
+                    <div>
+                        <h3>Free, Detailed Project Estimates</h3>
+                        <p>Get a transparent, no-obligation quote that details the scope, materials, and timeline.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-summaries py-8 bg-light">
+            <div class="container grid grid-2">
+                <article class="service-block">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2366A066' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%23ffffff' font-family='sans-serif'%3ESod Installation Image Placeholder%3C/text%3E%3C/svg%3E" alt="Image of a lush, newly installed lawn." style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
+                    <h2 style="color: var(--color-primary);">Natural Sod Installation That Stays Green</h2>
+                    <p>We work exclusively with high-grade natural sod, giving you an instantly lush, healthy lawn without the hassle. Our process ensures proper soil prep and deep root establishment for long-term health.</p>
+                    <a href="/sod-installation/" class="btn" style="background-color: var(--color-primary); color: #fff;">Explore Sod Options</a>
+                </article>
+
+                <article class="service-block">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%238B4513' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%23ffffff' font-family='sans-serif'%3EHardscaping Image Placeholder%3C/text%3E%3C/svg%3E" alt="Image of a beautiful stone paver patio." style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
+                    <h2 style="color: var(--color-primary);">Custom Hardscaping Designed to Inspire</h2>
+                    <p>From intricate paver patios and functional retaining walls to beautiful stone walkways, our hardscaping services transform unusable yard space into custom outdoor living areas.</p>
+                    <a href="/hardscaping/" class="btn" style="background-color: var(--color-primary); color: #fff;">Start Your Design</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="process-section py-8">
+            <div class="container">
+                <h2 class="section-heading text-center">Our Simple 4-Step Landscaping Process</h2>
+                <div class="grid grid-process">
+                    <div class="process-step">
+                        <span>1</span>
+                        <h3>Discovery & Quote</h3>
+                        <p>We schedule a consultation to assess your space, discuss your vision, and provide a clear, written estimate.</p>
+                    </div>
+                    <div class="process-step">
+                        <span>2</span>
+                        <h3>Design & Prep</h3>
+                        <p>Our team finalizes the design, selects high-quality materials, and prepares the site (soil grading, excavation, etc.).</p>
+                    </div>
+                    <div class="process-step">
+                        <span>3</span>
+                        <h3>Expert Installation</h3>
+                        <p>Certified crew members install your new sod or hardscape with precision, focusing on proper drainage and longevity.</p>
+                    </div>
+                    <div class="process-step">
+                        <span>4</span>
+                        <h3>Final Walkthrough</h3>
+                        <p>We review the completed project with you to ensure satisfaction and provide care instructions for maintenance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-cta">
+            <div class="container">
+                <h2>Ready to See the TruStone Difference?</h2>
+                <p>We believe seeing is believing. Browse our gallery of recently completed sod and hardscaping projects to get inspired and visualize your own space.</p>
+                <a href="/gallery/" class="btn btn-primary" style="margin-top: 1.5rem;">Browse Our Work</a>
+            </div>
+        </section>
+
+        <section id="contact-form-section" class="py-8">
+            <div class="container grid grid-2">
+                <div class="contact-info">
+                    <h2 class="section-heading" style="text-align: left;">Start Your Project with a Free Estimate</h2>
+                    <p>Call us now to speak directly with an expert, or fill out the form to request a detailed, no-obligation quote.</p>
+                    <p style="font-size: 1.5rem; margin-top: 1rem;">
+                        <strong style="color: var(--color-primary);">Call Now:</strong> <a href="tel:[Owner Phone Number]" style="color: var(--color-dark); text-decoration: none;">[Owner Phone Number]</a>
+                    </p>
+                    
+                    <h3 style="margin-top: 2rem; color: var(--color-primary);">Local Trust & Expertise</h3>
+                    <p>We are **Licensed and Insured** for all residential and commercial landscaping projects in [City, State].</p>
+                    <p>Serving: [3-4 Major Local Towns/Neighborhoods].</p>
+                </div>
+
+                <div class="contact-form">
+                    <form id="lead-form" method="POST" action="[Placeholder: WordPress Form Handler URL]">
+                        <h3>Request Your Detailed Project Quote</h3>
+                        <label for="name">Your Name <span style="color: red;">*</span></label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+
+                        <label for="email">Email <span style="color: red;">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="name@example.com">
+                        
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555">
+
+                        <label for="service">Service of Interest <span style="color: red;">*</span></label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a Service</option>
+                            <option value="Sod">Sod Installation</option>
+                            <option value="Hardscaping">Hardscaping</option>
+                            <option value="Both">Both Sod and Hardscaping</option>
+                        </select>
+                        
+                        <button type="submit" class="btn btn-primary">Send My Request</button>
+                        <div id="form-message" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <h4>TruStone Outdoors</h4>
+                <p>Revamping yards in [City, State] since [Year].</p>
+                <p>
+                    <a href="[Link to Facebook]" style="color: #fff; margin-right: 10px;">FB</a> | 
+                    <a href="[Link to Instagram]" style="color: #fff; margin-right: 10px;">IG</a>
+                </p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/sod-installation/">Sod Services</a></li>
+                    <li><a href="/hardscaping/">Hardscaping</a></li>
+                    <li><a href="/gallery/">Gallery</a></li>
+                    <li><a href="/service-areas/">Service Areas</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Phone: <a href="tel:[Owner Phone Number]" style="color: #ccc;">[Owner Phone Number]</a></p>
+                <p>Email: <a href="mailto:[Owner Email]" style="color: #ccc;">[Owner Email]</a></p>
+                <p>Hours: Mon - Fri, [Time Range]</p>
+            </div>
+            
+            <div class="footer-disclaimer">
+                <h4>Legal & Guarantee</h4>
+                <p>TruStone Outdoors is a licensed and insured contractor in [State]. All estimates are free and non-binding.</p>
+                <p>&copy; 2025 TruStone Outdoors. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle Mobile Menu
+        const navToggleBtn = document.getElementById('nav-toggle-btn');
+        const mobileMenu = document.getElementById('mobile-menu-list');
+
+        navToggleBtn.addEventListener('click', () => {
+            const isExpanded = navToggleBtn.getAttribute('aria-expanded') === 'true' || false;
+            navToggleBtn.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Contact Form Validation (Minimal JS)
+        const form = document.getElementById('lead-form');
+        const formMessage = document.getElementById('form-message');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            formMessage.textContent = '';
+            formMessage.className = 'form-message'; // Reset class
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const service = document.getElementById('service').value;
+
+            let errors = [];
+
+            if (!name) {
+                errors.push("Name is required.");
+            }
+            if (!email || !email.includes('@')) {
+                errors.push("A valid email is required.");
+            }
+            if (!service) {
+                errors.push("Please select a service of interest.");
+            }
+
+            if (errors.length > 0) {
+                // Show Error Message
+                formMessage.classList.add('error');
+                formMessage.innerHTML = '<strong>Validation Error:</strong><ul>' + errors.map(err => `<li>${err}</li>`).join('') + '</ul>';
+            } else {
+                // SUCCESS - Simulate form submission (preventing actual submission for this static file)
+                formMessage.classList.add('success');
+                formMessage.textContent = "Success! Thank you for your request. We will be in touch shortly.";
+                form.reset();
+                // In WordPress, this is where AJAX submission would occur.
+            }
+        });
+    </script>
+</body>
+</html>
+</html_code>
